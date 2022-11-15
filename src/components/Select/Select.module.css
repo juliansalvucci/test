@@ -1,0 +1,23 @@
+.select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: var(--arrow-down-url) no-repeat;
+    background-size: .9rem;
+    background-position: calc(100% - 5px) 55%;
+    background-repeat: no-repeat;
+    background-color: var(--white);
+    border: 2px solid var(--gray-light);
+    font-family: 'UniNeue';
+    border-radius: .4rem;
+    padding-left: .7rem;
+    padding-bottom: .7rem;
+    padding-top: .7rem;
+    padding-right: 1.7rem;
+    color: var(--text-color);
+}
+
+.select:focus
+{
+    outline: none;
+}
