@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 export const CantidadContratos = () => {
 
-    const [cantidadContratos, setCantidadContratos] = useState([]);
+    const [cantidadContratos, setCantidadContratos] = useState(0);
 
     useEffect(() => {
       async function getCantidadPaginas() {

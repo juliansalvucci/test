@@ -2,7 +2,7 @@ export const Contrato = ({ contrato }) => {
   return (
     <>
       <tbody>
-        <tr>
+        <tr >
           <td>{contrato.polizaDigital}</td>
           <td>{contrato.cuit}</td>
           <td>{contrato.razonSocial}</td>

@@ -1,21 +1,30 @@
-export const NavPage = ({page,setPage}) => {
-    return (
-      <header className="d-flex justify-content-between align-items-center">
-        <button
-          className="btn btn-primary btn-sm"
-          onClick={() => setPage(page - 1)}
-        >
-          Atras
-        </button>
+export const NavPage = ({ page, setPage }) => {
+  let paginas = [0, 1, 2, 3, 4, 5, 6, 7];
 
-        Página: {page}
-  
-        <button
-          className="btn btn-primary btn-sm"
-          onClick={() => setPage(page + 1)}
-        >
-          Siguiente
-        </button>
-      </header>
-    );
-  }
+  return (
+    <div>
+      <nav aria-label="Page navigation example">
+        <ul className="pagination">
+          <li className="page-item">
+            <button className="page-link" onClick={() => setPage(page - 1)}>
+              Anterior
+            </button>
+          </li>
+          {paginas.map((p) => (
+            <li className="page-item" key={p}>
+              <button className="page-link" onClick={() => setPage(p)}>
+                {p + 1}
+              </button>
+            </li>
+          ))}
+
+          <li className="page-item">
+            <button className="page-link" onClick={() => setPage(page + 1)}>
+              Siguiente
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  );
+};
