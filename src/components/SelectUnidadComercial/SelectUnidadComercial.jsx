@@ -23,6 +23,7 @@ export const SelectUnidadComercial = ({
 
   return (
     <div>
+      <h6>Unidad comercial: </h6>
       <select
       value={idUnidadComercial}
       onChange={(e)=>{

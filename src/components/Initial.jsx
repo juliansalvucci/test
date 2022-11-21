@@ -50,38 +50,41 @@ export const Initial = () => {
       ) : (
         <div className="container">
           <br />
-          <SearchInput
-            setContratos={setContratos}
-            cantidad={cantidad}
-            page={page}
-            sort={sort}
-            busqueda={busqueda}
-            setBusqueda={setBusqueda}
-          />
-
+          <div className="card">
           <br />
-          <div className="d-flex">
-            <div className="justify-content-start col-md-4">
-              <Select setSort={setSort} />
+            <SearchInput
+              setContratos={setContratos}
+              cantidad={cantidad}
+              page={page}
+              sort={sort}
+              busqueda={busqueda}
+              setBusqueda={setBusqueda}
+            />
+
+            <br />
+            <div className="d-flex">
+              <div className="justify-content-start col-md-4">
+                <Select setSort={setSort} />
+              </div>
+              <div className="justify-content-end col-md-12">
+                <SelectCant setCantidad={setCantidad} />
+              </div>
             </div>
-            <div className="justify-content-end col-md-12">
-              <SelectCant setCantidad={setCantidad} />
+
+            <SelectUnidadComercial
+              idUnidadComercial={idUnidadComercial}
+              setIdUnidadComercial={setIdUnidadComercial}
+            />
+            <br />
+            <div className="container">
+              <ContratoTable contratos={contratos} />
             </div>
-          </div>
 
-          <SelectUnidadComercial
-            idUnidadComercial={idUnidadComercial}
-            setIdUnidadComercial={setIdUnidadComercial}
-          />
-          <br />
-          <div className="container">
-            <ContratoTable contratos={contratos} />
-          </div>
-
-          <CantidadContratos />
-          <br />
-          <div className="d-flex justify-content-center">
-            <NavPage page={page} setPage={setPage} />
+            <CantidadContratos />
+            <br />
+            <div className="d-flex justify-content-center">
+              <NavPage page={page} setPage={setPage} />
+            </div>
           </div>
         </div>
       )}
