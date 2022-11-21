@@ -3,7 +3,7 @@ export const NavPage = ({ page, setPage }) => {
 
   return (
     <div>
-      <nav aria-label="Page navigation example">
+      <nav>
         <ul className="pagination">
           <li className="page-item">
             <button className="page-link" onClick={() => setPage(page - 1)}>

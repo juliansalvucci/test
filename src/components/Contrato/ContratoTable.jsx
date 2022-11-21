@@ -13,16 +13,7 @@ export const ContratoTable = (props) => {
               <th scope="col">Deuda</th>
               <th scope="col">Siniestros</th>
               <th scope="col">InicioVigencia</th>
-              <th scope="col">FinVigencia</th>
-              <th scope="col">IdUnidadComercial</th>
-              <th scope="col">AlicuotaFija</th>
-              <th scope="col">AlicuotaVariable</th>
-              <th scope="col">AlicuotasVigentes</th>
               <th scope="col">Estado</th>
-              <th scope="col">CnoPedido</th>
-              <th scope="col">CIIU</th>
-              <th scope="col">NivelRiesgo</th>
-              <th scope="col">Comision</th>
               <th scope="col">Regimen</th>
             </tr>
           </thead>

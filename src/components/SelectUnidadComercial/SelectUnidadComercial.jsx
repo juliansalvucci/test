@@ -23,13 +23,13 @@ export const SelectUnidadComercial = ({
 
   return (
     <div>
-      {idUnidadComercial}
       <select
       value={idUnidadComercial}
       onChange={(e)=>{
         const selected = e.target.value;
         setIdUnidadComercial(selected);
       }}>
+        <option value={0}>TODOS</option>
         {unidadesComerciales.map((uc) => {
           return <option key={uc.id} value={uc.id}>{uc.nombreUnidadComercial}</option>;
         })}
