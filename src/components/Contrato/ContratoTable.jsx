@@ -6,7 +6,6 @@ export const ContratoTable = (props) => {
         <table className="table">
           <thead>
             <tr>
-              <th scope="col">PolizaDigital</th>
               <th scope="col">Cuit</th>
               <th scope="col">RazonSocial</th>
               <th scope="col">Trabajadores</th>

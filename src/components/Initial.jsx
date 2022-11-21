@@ -9,7 +9,7 @@ import { SelectUnidadComercial } from "./SelectUnidadComercial/SelectUnidadComer
 
 export const Initial = () => {
   const [contratos, setContratos] = useState([]);
-  const [unidadesComerciales, setUnidadesComerciales] = useState([]);
+  const [idUnidadComercial, setIdUnidadComercial] = useState(0);
   const [page, setPage] = useState(0); //Manejdador de estado para paginación.
   const [cantidad, setCantidad]  = useState(5);
   const [sort, setSort] = useState('ASC');
@@ -50,7 +50,8 @@ export const Initial = () => {
           </div>
           <ContratoTable contratos={contratos} />
           <CantidadContratos />
-          <SelectUnidadComercial unidadesComerciales={unidadesComerciales} setUnidadesComerciales={setUnidadesComerciales}/>
+          {idUnidadComercial}
+          <SelectUnidadComercial idUnidadComercial={idUnidadComercial} setIdUnidadComercial={setIdUnidadComercial}/>
         </div>
       )}
     </div>
