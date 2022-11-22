@@ -1,4 +1,5 @@
 import {Contrato} from "./Contrato";
+import styles from "./Table.module.css"
 
 export const ContratoTable = (props) => {
     return (
@@ -25,4 +26,3 @@ export const ContratoTable = (props) => {
     );
 };
   
-export default ContratoTable;

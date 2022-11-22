@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import styles from './Button.module.css';
+import InputStyles from './input.module.css';
 
 export const SearchInput = ({ setContratos,page,sort,cantidad, busqueda ,setBusqueda }) => {
 
@@ -21,7 +22,7 @@ export const SearchInput = ({ setContratos,page,sort,cantidad, busqueda ,setBusq
   return (
     <div>
       {busqueda}
-      <input type="text" onChange={(e) => setBusqueda(e.target.value)} />
+      <input type="text" className={InputStyles.inputContainer} onChange={(e) => setBusqueda(e.target.value)} />
       <button onClick={search} className={styles.button}>Buscar</button>
     </div>
   );

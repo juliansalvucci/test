@@ -1,0 +1,35 @@
+ .input {
+    width: 98%;
+    background-color: var(--white);
+    padding: 0.7rem;
+    color: var(--text-color);
+    font-family: "UniNeue";
+    caret-color: var(--text-color);
+}
+
+.inputContainer {
+    width: 20%;
+    height: 40px;
+    border: 2px solid rgb(193, 193, 193);
+    background-color: var(--white);
+    border-radius: 0.3rem;
+    padding-right: 1rem;
+    flex-direction: row;
+    align-content: flex-start;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input::placeholder {
+    color: var(--gray-light-2);
+}
+
+.input:focus {
+    outline: none;
+}
+
+.cleanDateIcon {
+    cursor: pointer;
+    color: var(--red);
+    font-size: 1.5rem;
+}
