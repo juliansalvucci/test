@@ -4,6 +4,8 @@ import { Select } from "./Select/Select";
 import { SelectCant } from "./SelectCant/SelectCant";
 import { NavPage } from "./NavPage/NavPage";
 import { CantidadContratos } from "./CantidadContratos/CantidadContratos";
+import { CantidadContratosVigentes } from "./CantidadContratos/CantidadContratosVigentes";
+import { CantidadContratosVigentesConDeuda } from "./CantidadContratos/CantidadContratosVigentesConDeuda";
 import { SearchInput } from "./SearchInput/SearchInput";
 import { SelectUnidadComercial } from "./SelectUnidadComercial/SelectUnidadComercial";
 
@@ -51,7 +53,7 @@ export const Initial = () => {
         <div className="container">
           <br />
           <div className="card">
-          <br />
+            <br />
             <SearchInput
               setContratos={setContratos}
               cantidad={cantidad}
@@ -75,12 +77,23 @@ export const Initial = () => {
               idUnidadComercial={idUnidadComercial}
               setIdUnidadComercial={setIdUnidadComercial}
             />
-            <br />
+            <hr />
+            <div className="d-flex">
+              <div className="justify-content-start col-md-4">
+                <CantidadContratos />
+              </div>
+              <div className="justify-content-start col-md-4">
+                <CantidadContratosVigentes />
+              </div>
+              <div className="justify-content-start col-md-4">
+                <CantidadContratosVigentesConDeuda />
+              </div>
+            </div>
+            <hr />
             <div className="container">
               <ContratoTable contratos={contratos} />
             </div>
 
-            <CantidadContratos />
             <br />
             <div className="d-flex justify-content-center">
               <NavPage page={page} setPage={setPage} />

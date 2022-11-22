@@ -17,5 +17,5 @@ export const CantidadContratos = () => {
       getCantidadPaginas();
     }, []);
 
-    return <div>N° de resultados: {cantidadContratos}</div>;
+    return <div>Todos: {cantidadContratos}</div>;
 }
