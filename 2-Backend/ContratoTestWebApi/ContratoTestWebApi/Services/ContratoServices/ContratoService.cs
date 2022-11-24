@@ -1,51 +1,52 @@
 ﻿using ContratoTestWebApi.Data;
 using ContratoTestWebApi.Models;
+using ContratoTestWebApi.Models.Resquest;
 
 namespace ContratoTestWebApi.Services.ContratoServices
 {
     public class ContratoService : IContratoService
     {
-        public List<Contrato> GetAllContratos(int cant, int pagina, string sort)
+        public List<Contrato> GetAllContratos(BusquedaRequest br)
         {
-            var data = new ContratoData();
-            var contratos = data.GetAllContratos(cant, pagina, sort);
+            var data = new ContratoRepository();
+            var contratos = data.GetAllContratos(br);
             return contratos;
         }
 
-        public List<Contrato> GetContratosPorRazonSocial(int cant, int pagina, String sort, string razonSocial)
+        public List<Contrato> GetContratosPorRazonSocial(BusquedaRequest br)
         {
-            var data = new ContratoData();
-            return data.GetContratosPorRazonSocial(cant,pagina,sort,razonSocial);
+            var data = new ContratoRepository();
+            return data.GetContratosPorRazonSocial(br);
         }
 
-        public List<Contrato> GetContratosPorCuit(int cant, int pagina, string sort, string cuit)
+        public List<Contrato> GetContratosPorCuit(BusquedaRequest br)
         {
-            var data = new ContratoData();
-            return data.GetContratosPorCuit(cant, pagina, sort, cuit);
+            var data = new ContratoRepository();
+            return data.GetContratosPorCuit(br);
         }
 
         public int GetCantidadPaginas()
         {
-            var data = new ContratoData();
+            var data = new ContratoRepository();
             return data.GetCantidadPaginas();
         }
 
         public int GetCantidadContratosVigentes()
         {
-            var data = new ContratoData();
+            var data = new ContratoRepository();
             return data.GetCantidadContratosVigentes();
         }
 
         public int GetCantidadContratosVigentesConDeuda()
         {
-            var data = new ContratoData();
+            var data = new ContratoRepository();
             return data.GetCantidadContratosVigentesConDeuda();
         }
 
-        public List<Contrato> GetContratosPorUnidadComercial(int cant, int pagina, string sort, int idUnidadComercial)
+        public List<Contrato> GetContratosPorUnidadComercial(BusquedaRequest br)
         {
-            var data = new ContratoData();
-            return data.GetContratosPorUnidadComercial(cant, pagina, sort, idUnidadComercial);
+            var data = new ContratoRepository();
+            return data.GetContratosPorUnidadComercial(br);
         }
     }
 }

@@ -2,7 +2,6 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 
 export const SelectUnidadComercial = ({
-  idUnidadComercial,
   setIdUnidadComercial
 }) => {
 
@@ -25,7 +24,6 @@ export const SelectUnidadComercial = ({
     <div>
       <h6>Unidad comercial: </h6>
       <select
-      value={idUnidadComercial}
       onChange={(e)=>{
         const selected = e.target.value;
         setIdUnidadComercial(selected);

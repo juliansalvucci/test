@@ -1,13 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "gG/jkNCmLZsOQRiOZ+QZOSrssLYruekSEiIbiPILAc413yOkVNc6cWJFCq6Le6d+J/id7qxdoh4/7Cfzc9O8HQ==",
+  "dgSpecHash": "asIhklrOwptDkSnW7E45plQPGjjH+nH9RMUnHHfmhgUMvvj8donIXu4c7eMPdUtzkinhIuF5EWxH5Z+qVUcmIg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\julia\\source\\repos\\ContratoTestWebApi\\ContratoTestWebApi\\ContratoTestWebApi.csproj",
+  "projectFilePath": "C:\\Users\\julia\\Desktop\\Nueva carpeta\\test\\2-Backend\\ContratoTestWebApi\\ContratoTestWebApi\\ContratoTestWebApi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\julia\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\julia\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\documentformat.openxml\\2.11.3\\documentformat.openxml.2.11.3.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
-    "C:\\Users\\julia\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\julia\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.10\\microsoft.entityframeworkcore.6.0.10.nupkg.sha512",

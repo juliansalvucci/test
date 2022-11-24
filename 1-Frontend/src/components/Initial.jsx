@@ -17,22 +17,42 @@ export const Initial = () => {
   const [sort, setSort] = useState("ASC");
   const [loading, setLoading] = useState(true);
   const [busqueda, setBusqueda] = useState("");
+  const [form, setForm] = useState({
+    idUnidadComercial: 0,
+    cantidad: 5,
+    page: 0,
+    sort: "",
+    busqueda: "",
+  });
 
-  async function fetchData() {
-    if (busqueda === "" && page >= 0 && idUnidadComercial == 0) {
-      const data = await fetch(
-        `https://localhost:7128/api/GetAllContratos?cant=${cantidad}&pagina=${page}&sort=${sort}`
-      );
+  async function buscarTodosLosContratos() {
+    if (busqueda === "" && page >= 0 && idUnidadComercial == "0") {
+      const data = await fetch(`https://localhost:7128/api/GetAllContratos`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
       const results = await data.json();
       setContratos(results);
       setLoading(false);
     }
   }
 
-  async function fetchData2() {
+  async function buscarContratosPorUnidadComercial() {
     if (busqueda === "" && page >= 0 && idUnidadComercial !== 0) {
       const data = await fetch(
-        `https://localhost:7128/api/GetContratosPorUnidadComercial?cant=${cantidad}&pagina=${page}&sort=${sort}&idUnidadComercial=${idUnidadComercial}`
+        `https://localhost:7128/api/GetContratosPorUnidadComercial`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        }
       );
       const results = await data.json();
       setContratos(results);
@@ -41,9 +61,29 @@ export const Initial = () => {
   }
 
   useEffect(() => {
-    fetchData();
-    fetchData2();
+    let obj = {
+      idUnidadComercial: idUnidadComercial,
+      cantidad: cantidad,
+      page: page,
+      sort: sort,
+      busqueda: busqueda,
+    };
+
+    console.log(form);
+
+    setForm((form) => ({
+      ...form, //se deben llamar igual.
+      ...obj,
+    }));
+
+    console.log("EN SCOPE", form);
   }, [page, sort, cantidad, busqueda, idUnidadComercial]);
+
+  useEffect(() => {
+    buscarTodosLosContratos();
+    buscarContratosPorUnidadComercial();
+    console.log("FUERA SCOPE", form);
+  }, [form]);
 
   return (
     <div>
@@ -56,11 +96,8 @@ export const Initial = () => {
             <br />
             <SearchInput
               setContratos={setContratos}
-              cantidad={cantidad}
-              page={page}
-              sort={sort}
-              busqueda={busqueda}
               setBusqueda={setBusqueda}
+              form={form}
             />
 
             <br />
@@ -74,7 +111,6 @@ export const Initial = () => {
             </div>
 
             <SelectUnidadComercial
-              idUnidadComercial={idUnidadComercial}
               setIdUnidadComercial={setIdUnidadComercial}
             />
             <hr />

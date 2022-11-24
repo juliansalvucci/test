@@ -1,4 +1,7 @@
-﻿using ContratoTestWebApi.Models;
+﻿using AutoMapper;
+using ContratoTestWebApi.Models;
+using ContratoTestWebApi.Models.DTOs;
+using ContratoTestWebApi.Models.Resquest;
 using ContratoTestWebApi.Services.ContratoServices;
 using ContratoTestWebApi.Services.ExcelServices;
 using Microsoft.AspNetCore.Mvc;
@@ -11,25 +14,25 @@ namespace ContratoTestWebApi.Controllers
     {
         private readonly IContratoService _contratoService;
         private readonly IExcelService _excelService;
+        private readonly IMapper _mapper;
 
-        public ContratoController(IContratoService service, IExcelService excelService)
+        public ContratoController(IContratoService service, IExcelService excelService, IMapper mapper)
         {
             _contratoService = service;
             _excelService = excelService;
+            _mapper = mapper;
         }
 
-
-
-        [HttpGet("/api/GetAllContratos")]
-        public ActionResult<List<Contrato>> GetAllContratos(int cant, int pagina, String sort)
+        [HttpPost("/api/GetAllContratos")]
+        public ActionResult<List<ContratoDto>> GetAllContratos(BusquedaRequest br)
         {
             try
             {
-                var registros = _contratoService.GetAllContratos(cant,pagina,sort);
+                var registros = _contratoService.GetAllContratos(br);
 
-               _excelService.ExportarAExcel(registros);
+                var contratosDto = _mapper.Map<List<ContratoDto>>(registros);
 
-                return Ok(registros);
+                return Ok(contratosDto);
             }
             catch(Exception ex)
             {
@@ -37,14 +40,16 @@ namespace ContratoTestWebApi.Controllers
             }
         }
 
-        [HttpGet("/api/GetContratosPorUnidadComercial")]
-        public ActionResult<List<Contrato>> GetContratosPorUnidadComercial(int cant, int pagina, String sort, int idUnidadComercial)
+        [HttpPost("/api/GetContratosPorUnidadComercial")]
+        public ActionResult<List<ContratoDto>> GetContratosPorUnidadComercial(BusquedaRequest br)
         {
             try
             {
-                var registros = _contratoService.GetContratosPorUnidadComercial(cant, pagina, sort,idUnidadComercial);
+                var registros = _contratoService.GetContratosPorUnidadComercial(br);
 
-                return Ok(registros);
+                var contratosDto = _mapper.Map<List<ContratoDto>>(registros);
+
+                return Ok(contratosDto);
             }
             catch (Exception ex)
             {
@@ -58,7 +63,6 @@ namespace ContratoTestWebApi.Controllers
             try
             {
                 var registros = _contratoService.GetCantidadPaginas();
-
 
                 return Ok(registros);
             }
@@ -99,13 +103,16 @@ namespace ContratoTestWebApi.Controllers
         }
 
         
-        [HttpGet("/api/GetContratosPorRazonSocial")]
-        public ActionResult<List<Contrato>> GetContratosPorRazonSocial(int cant, int pagina, String sort, string razonSocial)
+        [HttpPost("/api/GetContratosPorRazonSocial")]
+        public ActionResult<List<ContratoDto>> GetContratosPorRazonSocial(BusquedaRequest br)
         {
             try
             {
-                var registros = _contratoService.GetContratosPorRazonSocial(cant,pagina,sort,razonSocial);
-                return Ok(registros);
+                var registros = _contratoService.GetContratosPorRazonSocial(br);
+
+                var contratosDto = _mapper.Map<List<ContratoDto>>(registros);
+
+                return Ok(contratosDto);
             }
             catch (Exception ex)
             {
@@ -113,13 +120,16 @@ namespace ContratoTestWebApi.Controllers
             }
         }
 
-        [HttpGet("/api/GetContratosPorCuit")]
-        public ActionResult<List<Contrato>> GetContratosPorCuit(int cant, int pagina, String sort, string cuit)
+        [HttpPost("/api/GetContratosPorCuit")]
+        public ActionResult<List<ContratoDto>> GetContratosPorCuit(BusquedaRequest br)
         {
             try
             {
-                var registros = _contratoService.GetContratosPorCuit(cant,pagina,sort,cuit);
-                return Ok(registros);
+                var registros = _contratoService.GetContratosPorCuit(br);
+
+                var contratosDto = _mapper.Map<List<ContratoDto>>(registros);
+
+                return Ok(contratosDto);
             }
             catch (Exception ex)
             {

@@ -23,6 +23,7 @@ builder.Services.AddCors(p => p.AddPolicy("corspolicy", build =>
 builder.Services.AddScoped<IContratoService, ContratoService>();
 builder.Services.AddScoped<IExcelService, ExcelService>();
 builder.Services.AddScoped<IUnidadComercialService, UnidadComercialService>();
+builder.Services.AddAutoMapper(typeof(Program));
 
 //CONFIGURACIÓN DE LA CADENA DE CONEXIÓN Y EF.
 builder.Services.AddDbContext<ApplicationDBContext>(options =>

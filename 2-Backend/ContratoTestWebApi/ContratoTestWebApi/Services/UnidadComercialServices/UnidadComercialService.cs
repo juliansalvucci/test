@@ -7,7 +7,7 @@ namespace ContratoTestWebApi.Services.UnidadComercialServices
     {
         public List<UnidadComercial> GetAllUnidadComerciales()
         {
-            var data = new UnidadComercialData();
+            var data = new UnidadComercialRepository();
             var registros = data.GetAllUnidadesComerciales();
             return registros;
         }

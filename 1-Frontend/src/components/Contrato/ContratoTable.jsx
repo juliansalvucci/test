@@ -1,5 +1,4 @@
 import {Contrato} from "./Contrato";
-import styles from "./Table.module.css"
 
 export const ContratoTable = (props) => {
     return (
@@ -19,7 +18,7 @@ export const ContratoTable = (props) => {
             </tr>
           </thead>
           {props.contratos.map((contrato) => (
-            <Contrato key={contrato.id} contrato={contrato} />
+            <Contrato key={contrato.cuit} contrato={contrato} />
           ))}
         </table>
       </div>

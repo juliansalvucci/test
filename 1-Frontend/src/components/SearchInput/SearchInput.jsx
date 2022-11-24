@@ -4,24 +4,35 @@ import InputStyles from "./input.module.css";
 
 export const SearchInput = ({
   setContratos,
-  page,
-  sort,
-  cantidad,
-  busqueda,
+  form,
   setBusqueda,
 }) => {
-  const [criterioBusqueda, setCriterioBusqueda] = useState();
+  const [criterioBusqueda, setCriterioBusqueda] = useState('CUIT');
 
   async function buscar() {
-    await buscarPorCuit();
-    await searchRazonSocial();
+    switch (criterioBusqueda) {
+      case "CUIT":
+        await buscarPorCuit();
+        break;
+      case "RAZONSOCIAL":
+        await buscarPorRazonSocial();
+        break;
+    }
   }
 
   async function buscarPorCuit() {
     try {
-      if (busqueda !== "" && page >= 0 && criterioBusqueda === "CUIT") {
+      if (form.busqueda !== "" && form.page >= 0) {
         const data = await fetch(
-          `https://localhost:7128/api/GetContratosPorCuit?cant=${cantidad}&pagina=${page}&sort=${sort}&cuit=${busqueda}`
+          `https://localhost:7128/api/GetContratosPorCuit`,
+          {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(form),
+          }
         );
         const results = await data.json();
         setContratos(results);
@@ -31,24 +42,33 @@ export const SearchInput = ({
     }
   }
 
-  async function searchRazonSocial() {
+  useEffect(()=>{
+    buscar();
+  },[form.page, form.cantidad, form.sort])
+
+  async function buscarPorRazonSocial() {
     try {
-      if (busqueda !== "" && page >= 0 && criterioBusqueda === "RAZONSOCIAL") {
+      if (form.busqueda !== "" && form.page >= 0) {
+        console.log("PESCA", form);
         const data = await fetch(
-          `https://localhost:7128/api/GetContratosPorRazonSocial?cant=${cantidad}&pagina=${page}&sort=${sort}&razonSocial=${busqueda}`
+          `https://localhost:7128/api/GetContratosPorRazonSocial`,
+          {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(form),
+          }
         );
         const results = await data.json();
+        console.log("resultados", results);
         setContratos(results);
       }
     } catch (e) {
       console.log(e);
     }
   }
-
-  useEffect(() => {
-    buscarPorCuit();
-    searchRazonSocial();
-  }, [page, sort, cantidad]);
 
   return (
     <div className="d-flex">

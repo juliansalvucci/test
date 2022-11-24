@@ -1,13 +1,14 @@
 ﻿using ContratoTestWebApi.Models;
+using ContratoTestWebApi.Models.Resquest;
 
 namespace ContratoTestWebApi.Services.ContratoServices
 {
     public interface IContratoService
     {
-        public List<Contrato> GetAllContratos(int cant, int pagina, string sort);
-        public List<Contrato> GetContratosPorRazonSocial(int cant, int pagina, String sort, string razonSocial);
-        public List<Contrato> GetContratosPorCuit(int cant, int pagina, string sort, string cuit);
-        public List<Contrato> GetContratosPorUnidadComercial(int cant, int pagina, string sort, int idUnidadComercial);
+        public List<Contrato> GetAllContratos(BusquedaRequest br);
+        public List<Contrato> GetContratosPorRazonSocial(BusquedaRequest br);
+        public List<Contrato> GetContratosPorCuit(BusquedaRequest br);
+        public List<Contrato> GetContratosPorUnidadComercial(BusquedaRequest br);
         public int GetCantidadPaginas();
         public int GetCantidadContratosVigentes();
 

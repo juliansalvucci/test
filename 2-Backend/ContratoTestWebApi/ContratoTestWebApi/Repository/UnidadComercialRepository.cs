@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace ContratoTestWebApi.Data
 {
-    public class UnidadComercialData
+    public class UnidadComercialRepository
     {
         public string _cnnStr = "Server=localhost\\SQLEXPRESS;Database=TestBd;Trusted_Connection=True;";
         public List<UnidadComercial> GetAllUnidadesComerciales()

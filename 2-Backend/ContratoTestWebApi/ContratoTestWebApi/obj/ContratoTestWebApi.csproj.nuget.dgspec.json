@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\julia\\source\\repos\\ContratoTestWebApi\\ContratoTestWebApi\\ContratoTestWebApi.csproj": {}
+    "C:\\Users\\julia\\Desktop\\Nueva carpeta\\test\\2-Backend\\ContratoTestWebApi\\ContratoTestWebApi\\ContratoTestWebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\julia\\source\\repos\\ContratoTestWebApi\\ContratoTestWebApi\\ContratoTestWebApi.csproj": {
+    "C:\\Users\\julia\\Desktop\\Nueva carpeta\\test\\2-Backend\\ContratoTestWebApi\\ContratoTestWebApi\\ContratoTestWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\julia\\source\\repos\\ContratoTestWebApi\\ContratoTestWebApi\\ContratoTestWebApi.csproj",
+        "projectUniqueName": "C:\\Users\\julia\\Desktop\\Nueva carpeta\\test\\2-Backend\\ContratoTestWebApi\\ContratoTestWebApi\\ContratoTestWebApi.csproj",
         "projectName": "ContratoTestWebApi",
-        "projectPath": "C:\\Users\\julia\\source\\repos\\ContratoTestWebApi\\ContratoTestWebApi\\ContratoTestWebApi.csproj",
+        "projectPath": "C:\\Users\\julia\\Desktop\\Nueva carpeta\\test\\2-Backend\\ContratoTestWebApi\\ContratoTestWebApi\\ContratoTestWebApi.csproj",
         "packagesPath": "C:\\Users\\julia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\julia\\source\\repos\\ContratoTestWebApi\\ContratoTestWebApi\\obj\\",
+        "outputPath": "C:\\Users\\julia\\Desktop\\Nueva carpeta\\test\\2-Backend\\ContratoTestWebApi\\ContratoTestWebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\julia\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
             "Dapper": {
               "target": "Package",
               "version": "[2.0.123, )"

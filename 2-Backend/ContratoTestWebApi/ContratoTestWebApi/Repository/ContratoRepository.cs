@@ -1,28 +1,34 @@
 ﻿using ContratoTestWebApi.Models;
+using ContratoTestWebApi.Models.Resquest;
 using Dapper;
 using System.Data.SqlClient;
 
 namespace ContratoTestWebApi.Data
 {
-    public class ContratoData
+    public class ContratoRepository
     {
         public string _cnnStr = "Server=localhost\\SQLEXPRESS;Database=TestBd;Trusted_Connection=True;";
-        public  List<Contrato> GetAllContratos(int cant, int pagina, String sort)
+        public  List<Contrato> GetAllContratos(BusquedaRequest br)
         {
             using var cnn = new SqlConnection(_cnnStr);
             cnn.Open();
             var query = @$"SELECT * FROM Contrato
-                ORDER BY Id {sort}                               
-                OFFSET {cant*pagina} ROWS                               
-                FETCH NEXT {cant} ROWS ONLY";
+                ORDER BY Id {br.sort}                               
+                OFFSET {br.cantidad * br.page} ROWS                               
+                FETCH NEXT {br.cantidad} ROWS ONLY";
             var list = cnn.Query<Contrato>(query).ToList();
             return list;
         }
 
-        public List<Contrato> GetContratosPorRazonSocial(int cant, int pagina, String sort, string razonSocial)
+        public List<Contrato> GetContratosPorRazonSocial(BusquedaRequest br)
         {
             using var cnn = new SqlConnection(_cnnStr);
             cnn.Open();
+
+            var sort = br.sort;
+            var cant = br.cantidad;
+            var pagina = br.page;
+            var razonSocial = br.busqueda;
 
             var query = @$"SELECT * FROM Contrato  
                 WHERE RazonSocial LIKE @value
@@ -33,10 +39,16 @@ namespace ContratoTestWebApi.Data
             return list;
         }
 
-        public List<Contrato> GetContratosPorCuit(int cant, int pagina, String sort, string cuit)
+        public List<Contrato> GetContratosPorCuit(BusquedaRequest br)
         {
             using var cnn = new SqlConnection(_cnnStr);
             cnn.Open();
+
+            var sort = br.sort;
+            var cant = br.cantidad;
+            var pagina = br.page;
+            var cuit = br.busqueda;
+
             var query = @$"SELECT * FROM Contrato  
                 WHERE Cuit = {cuit}
                 ORDER BY Id {sort}                               
@@ -45,15 +57,15 @@ namespace ContratoTestWebApi.Data
             var list = cnn.Query<Contrato>(query).ToList();
             return list;
         }
-        public List<Contrato> GetContratosPorUnidadComercial(int cant, int pagina, string sort, int idUnidadComercial)
+        public List<Contrato> GetContratosPorUnidadComercial(BusquedaRequest br)
         {
             using var cnn = new SqlConnection(_cnnStr);
             cnn.Open();
             var query = @$"SELECT * FROM Contrato 
-                WHERE IdUnidadComercial = {idUnidadComercial}
-                ORDER BY Id {sort}                               
-                OFFSET {cant * pagina} ROWS                               
-                FETCH NEXT {cant} ROWS ONLY";
+                WHERE IdUnidadComercial = {br.idUnidadComercial}
+                ORDER BY Id {br.sort}                               
+                OFFSET {br.cantidad * br.page} ROWS                               
+                FETCH NEXT {br.cantidad} ROWS ONLY";
             var list = cnn.Query<Contrato>(query).ToList();
             return list;
         }
